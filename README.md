@@ -1,7 +1,7 @@
 # bustabit-gambling-bot
 This script waits for low numbers (reds) streaks, then margintales. It also chases 19x anomalies.
 
-
+    ```javascript
     var crashes = 0;
     var winnings = 0;
     var myBet = 0;
@@ -71,4 +71,4 @@ This script waits for low numbers (reds) streaks, then margintales. It also chas
           myBet = data.bet;
         }
     });
-
+```
