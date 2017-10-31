@@ -67,4 +67,9 @@ engine.on('cashed_out', function(data) {
     console.log("Total winnings: " + winnings)
  }
 });
+engine.on('game_started', function(data) {
+  if(data = data[engine.getUsername()]) {
+    myBet = data.bet;
+  }
+});
 ```
