@@ -62,7 +62,7 @@ engine.on('game_crash', function(data) {
 });
 engine.on('cashed_out', function(data) {
   if(data.username === engine.getUsername()) {
-    console.log('Cashed out ' + (myBet * data.stopped_at / 100) / 100 + ' bits!');
+    console.log('Cashed out ' + (myBet * data.stopped_at) / 100 + ' bits!');
     winnings +=  (myBet * (data.stopped_at - 100) / 100 ) / 100;
     console.log("Total winnings: " + winnings)
  }
