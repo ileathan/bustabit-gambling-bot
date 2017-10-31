@@ -7,7 +7,7 @@ var winnings = 0;
 var myBet = 0;
 const MULTIPLIER = 2; // increase bet on loss by 2
 const CASH_OUT = 277; // PERCENTAGE
-const RED_TILL_START = 4; // After 4 crashes under 207(red) we start.
+const RED_TILL_START = 10; // After 4 crashes under 207(red) we start.
 const RED = 207;
 const BASE_BET = 100 // Base bet IN SATOSHIES!!! (100 sats = 1 bit)
 const CHASE_NINETEENS = false; // set this to true to enable chasing 19's every WAIT_19.
