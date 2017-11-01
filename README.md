@@ -4,24 +4,29 @@ This script waits for low numbers (reds) streaks, then margintales. It also chas
 **WITH THESE SETTINGS YOU WILL GAIN, BUT THE BOT WILL ALMOST NEVER PLAY, OR RISK MUCH**
 
 ```javascript
+// // // // // // // // //
+//
 // Change `RED_TILL_START` to be a smaller number (red streak), and change `WAIT_19` to be smaller (19x fails).
-var crashes = 0;
-var winnings = 0;
-var myBet = 0;
-const MULTIPLIER = 2; // increase bet on loss by 2
-const CASH_OUT = 277; // PERCENTAGE
-const RED_TILL_START = 11; // After 4 crashes under 207(red) we start.
+//
+// // // // // // // // // //  //
+const MULTIPLIER = 2;          // Increase bet on loss by 2
+const CASH_OUT = 277;          // Cash out as PERCENTAGE
+const RED_TILL_START = 11;     // After 4 crashes under 207(red) we start.
 const RED = 207;
-const BASE_BET = 100 // Base bet IN SATOSHIES!!! (100 sats = 1 bit)
+const BASE_BET = 100           // Base bet IN SATOSHIES!!! (100 sats = 1 bit)
 const CHASE_NINETEENS = false; // set this to true to enable chasing 19's every WAIT_19.
-const WAIT_19 = 129;
-var last_nineteen = 0;
+const WAIT_19 = 129;           // Wait this many times since last 19x occurance to start chase.
+var crashes = 0;               // Keep track of crashes under RED
+var winnings = 0;              // Keep track of winnings
+var myBet = 0;                 // Your bet (changing this number is useless, it gets modified IRT)
+
+var last_nineteen = 0;         // Used to track the last 19x occurance.
  
 engine.on('game_starting', function(info) {
   if(crashes > RED_TILL_START) {
-    console.log('Game in ' + info.time_till_start/1000 + ' sec. [ PLAYING ]')
+    console.log('Game in ' + info.time_till_start / 1000 + ' sec. [ PLAYING ]')
   } else {
-    console.log('NOT playing game in ' + info.time_till_start/1000 + ' secs. [ NOT PLAYING ]')
+    console.log('Game in ' + info.time_till_start / 1000 + ' secs. [ NOT PLAYING ]')
   }
   console.log('Last game ' + engine.lastGamePlay())
 });
